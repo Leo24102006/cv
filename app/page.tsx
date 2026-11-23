@@ -10,14 +10,12 @@ import {
   loisirs,
 } from "./data";
 
+// Texte simple séparé par des « · » plutôt qu'une liste d'étiquettes :
+// moins d'éléments HTML, donc une page plus légère (score EcoIndex).
 function Liste({ items }: { items: string[] }) {
-  return (
-    <ul className="tags">
-      {items.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </ul>
-  );
+  // Espaces insécables : un élément n'est jamais coupé et le « · » reste en fin de ligne.
+  const texte = items.map((i) => i.replace(/ /g, "\u00a0")).join("\u00a0· ");
+  return <p className="liste">{texte}</p>;
 }
 
 export default function Page() {

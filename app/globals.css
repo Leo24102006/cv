@@ -5,7 +5,6 @@
   --texte: #1e2420;
   --texte-doux: #4f5a52;
   --accent: #2f3d31;
-  --accent-clair: #dcebef;
   --lien: #2b5f6e;
   --bordure: #dedcd4;
   --entete-fond: #2f3d31;
@@ -21,7 +20,6 @@
     --texte: #e6e9e4;
     --texte-doux: #a9b3ab;
     --accent: #a9d3df;
-    --accent-clair: #26343a;
     --lien: #a9d3df;
     --bordure: #2e3830;
     --entete-fond: #1d241f;
@@ -163,20 +161,9 @@ h3 {
   margin-top: 4px;
 }
 
-.tags {
-  list-style: none;
+.liste {
   margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tags li {
-  background: var(--accent-clair);
-  border-radius: 6px;
-  padding: 3px 10px;
-  font-size: 0.92rem;
+  line-height: 1.8;
 }
 
 .lateral p {
@@ -208,7 +195,6 @@ h3 {
     --texte: #000;
     --texte-doux: #333;
     --accent: #000;
-    --accent-clair: #fff;
     --lien: #000;
     --bordure: #999;
     --entete-fond: #fff;
@@ -229,10 +215,6 @@ h3 {
   }
   h2 {
     margin: 12px 0 6px;
-  }
-  .tags li {
-    border: 1px solid #999;
-    padding: 0 6px;
   }
   .pied {
     display: none;

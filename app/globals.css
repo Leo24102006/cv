@@ -1,0 +1,247 @@
+/* Polices système : aucune police à télécharger */
+:root {
+  --fond: #f6f5f1;
+  --surface: #ffffff;
+  --texte: #1e2420;
+  --texte-doux: #4f5a52;
+  --accent: #2f3d31;
+  --accent-clair: #dcebef;
+  --lien: #2b5f6e;
+  --bordure: #dedcd4;
+  --entete-fond: #2f3d31;
+  --entete-texte: #f3f4ef;
+  --entete-accent: #a9d3df;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fond: #151a16;
+    --surface: #1d241f;
+    --texte: #e6e9e4;
+    --texte-doux: #a9b3ab;
+    --accent: #a9d3df;
+    --accent-clair: #26343a;
+    --lien: #a9d3df;
+    --bordure: #2e3830;
+    --entete-fond: #1d241f;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--fond);
+  color: var(--texte);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--lien);
+  text-underline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--lien);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+h1,
+h2,
+h3 {
+  line-height: 1.25;
+}
+
+.conteneur {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/* En-tête */
+.entete {
+  background: var(--entete-fond);
+  color: var(--entete-texte);
+  padding: 48px 0 40px;
+}
+
+.entete h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.entete h1 span {
+  text-transform: uppercase;
+}
+
+.titre {
+  margin: 4px 0 0;
+  font-size: 1.25rem;
+  color: var(--entete-accent);
+  font-weight: 600;
+}
+
+.recherche {
+  display: inline-block;
+  margin: 16px 0 0;
+  padding: 6px 12px;
+  border: 1px solid var(--entete-accent);
+  border-radius: 999px;
+  font-size: 0.95rem;
+}
+
+.contact {
+  margin: 16px 0 0;
+}
+
+.contact a {
+  color: var(--entete-texte);
+}
+
+/* Contenu */
+.grille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px 48px;
+  padding-top: 24px;
+  padding-bottom: 32px;
+}
+
+@media (min-width: 800px) {
+  .grille {
+    grid-template-columns: minmax(0, 1.7fr) minmax(0, 1fr);
+  }
+}
+
+h2 {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin: 32px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--bordure);
+}
+
+h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+.bloc {
+  margin-bottom: 20px;
+}
+
+.bloc p {
+  margin: 4px 0 0;
+}
+
+.meta {
+  color: var(--texte-doux);
+  font-size: 0.95rem;
+}
+
+.puces {
+  margin: 0;
+  padding-left: 1.2em;
+}
+
+.puces li + li {
+  margin-top: 4px;
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  background: var(--accent-clair);
+  border-radius: 6px;
+  padding: 3px 10px;
+  font-size: 0.92rem;
+}
+
+.lateral p {
+  margin: 0;
+}
+
+/* Pied de page */
+.pied {
+  border-top: 1px solid var(--bordure);
+  color: var(--texte-doux);
+  font-size: 0.85rem;
+  padding: 16px 0 24px;
+}
+
+.pied p {
+  margin: 0;
+}
+
+.introuvable {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+/* Impression : le CV tient sur une page, sans fond coloré (économie d'encre) */
+@media print {
+  :root {
+    --fond: #fff;
+    --surface: #fff;
+    --texte: #000;
+    --texte-doux: #333;
+    --accent: #000;
+    --accent-clair: #fff;
+    --lien: #000;
+    --bordure: #999;
+    --entete-fond: #fff;
+    --entete-texte: #000;
+    --entete-accent: #000;
+  }
+  body {
+    font-size: 10pt;
+    line-height: 1.4;
+  }
+  .entete {
+    padding: 0 0 8px;
+  }
+  .grille {
+    grid-template-columns: 1.7fr 1fr;
+    gap: 0 24px;
+    padding: 0;
+  }
+  h2 {
+    margin: 12px 0 6px;
+  }
+  .tags li {
+    border: 1px solid #999;
+    padding: 0 6px;
+  }
+  .pied {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
